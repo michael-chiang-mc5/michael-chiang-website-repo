@@ -26,8 +26,7 @@ DEBUG = False
 from mySite.secret_keys_and_passwords import *
 SECRET_KEY = django_secret_key
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['.journalclubdb.com','127.0.0.1']
 
 # Application definition
 
