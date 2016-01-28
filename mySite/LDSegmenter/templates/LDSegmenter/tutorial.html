@@ -1,0 +1,104 @@
+{% extends "MCBase/base.html" %}
+{% load staticfiles %}
+
+{% block javascript %}
+  <link rel="stylesheet" href="{% static 'LDSegmenter/css/tutorial.css' %}">
+{% endblock %}
+
+{% block title %}
+  tutorial
+{% endblock %}
+
+{% block body_block %}
+<div class="content">
+  <div class="page-header">LDSegmenter tutorial</div>
+
+  <!-- install -->
+  <div class="tutorial-step">
+    <h1>Installing ImageJ and LDSegmenter</h1>
+    <p>First, install ImageJ. You can download ImageJ
+      <a href="http://imagej.nih.gov/ij/download.html">here</a>.</p>
+    <p>Next, download LDSegmenter <a href="{% static 'LDSegmenter/LDSegmenter_.jar' %}">here</a>
+      and place the .jar file in the "plugins" folder of ImageJ.</p>
+    <p>Finally, download LibSVM and MorphoLibJ, which are two libraries required by
+      LDSegmenter (<a href="{% static 'LDSegmenter/libsvm.jar' %}">libsvm</a>,
+      <a href="{% static 'LDSegmenter/MorphoLibJ_-1.1.0.jar' %}">morpholibj</a>).
+      Place LibSVM and MorphoLibJ in the "plugins" folder of ImageJ.
+      <br />
+      Note that I've hosted libsvm and morpholibj on my server in case future updates break
+      backwards compatability with LDSegmenter; for completeness, the original
+      .jar files can be found <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvm/">here</a>
+      and <a href="https://github.com/ijpb/MorphoLibJ/releases">here</a>.
+    <p>That's it, LDSegmenter should be installed!<p>
+  </div>
+
+  <!-- download datasets -->
+  <div class="tutorial-step">
+    <h1>Download example datasets</h1>
+    <p>Let's download some sample datasets so we can give LDSegmenter a spin.</p>
+    <p>Download the example datasets <a href="{% static 'LDSegmenter/example_working_directory.zip' %}">here</a>
+      and unzip it. You should see a base folder "example_working_directory"
+      with a subfolder "input_images" containing a few .tif images.</p>
+    <p>You should utilize the same folder structure for your own images; a base
+      folder named whatever you want, and a subfolder specifically named "input_images".
+      You should put your images within "input_images".</p>
+    <p>In general, you should keep different sets of data within different working directories.
+      For example, maybe you want to count lipid droplets in CARS images, and count stars in
+      a telescope image. You should put the lipid droplet images in "lipid_droplets/input_images/*.tif"
+      and the star images in "stars/input_images/*.tif". Do not mix all the images into one folder.
+      LDSegmenter attempts to learn what a lipid droplet or a star looks like, and
+      trying to teach it two very different things at the same time might confuse it.
+    </p>
+    <p>Your images should be 16-bit and have a single channel. If they are not, please
+      convert them appropriately.</p>
+  </div>
+
+  <!-- preprocess images -->
+  <div class="tutorial-step">
+    <h1>Preprocess images</h1>
+    <p>You've installed LDSegmenter, and you've downloaded some sample datasets.
+      We can finally start counting lipid droplets.</p>
+    <p>First, open ImageJ. Then, click Plugins -> LDSegmenter -> Preprocess.</p>
+    <p>A menu should pop up. Click "Set workspace", and select the example working directory
+     that you downloaded.</p>
+    <p>Click preprocess, and wait until LDSegmenter has processed all images.</p>
+    <p>Congratulations, you are done with step one!</p>
+  </div>
+
+  <!-- annotate images -->
+  <div class="tutorial-step">
+    <h1>Annotate images</h1>
+    <p>Now let's annotate some lipid droplets so that we can teach LDSegmenter what
+      a droplet should and shouldn't look like</p>
+    <p>Click Plugins -> LDSegmenter -> Annotate. A new menu should pop up.</p>
+    <p>Click "Set workspace", and select the example working directory
+     that you downloaded.</p>
+    <p>Click "Open random image", and a random input image should open up.</p>
+    <p>Left click on a couple of lipid droplets. A green mask boundary should
+     segment each clicked lipid droplet.</p>
+    <p>Shift left click a couple areas of the image that have no lipid droplet. A red mask
+     boundary should segment each non-lipid droplet.</p>
+    <p>Click "Train SVM and apply to image". LDSegmenter will try to learn what a
+      lipid droplet should look like, and display detections in yellow.
+    </p>
+    <p>You can now correct mis-classification and re-run the SVM. Alternatively, you can
+      click "Open random image" and annotate some more droplets.</p>
+
+  </div>
+
+  <!-- Apply svm -->
+  <div class="tutorial-step">
+    <h1>Apply SVM</h1>
+    <p>You've annotated a bunch of positive and negative examples of lipid droplets,
+     and now you want to train and apply an SVM to all input images.</p>
+    <p>Click Plugins -> LDSegmenter -> Classify. A new menu should pop up.</p>
+    <p>Click "Set workspace", and select the example working directory
+     that you downloaded.</p>
+    <p>Click "Train SVM and apply to all images". Wait a bit, until LDSegmenter
+      tells you it's finished. Now look in the "final_segmentations" subfolder of your
+      working directory. It contains labeled segmentation masks of your lipid droplets.</p>
+  </div>
+
+
+</div>
+{% endblock %}
