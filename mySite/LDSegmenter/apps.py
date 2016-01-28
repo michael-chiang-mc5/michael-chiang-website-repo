@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class BlobsegmenterConfig(AppConfig):
+class LdsegmenterConfig(AppConfig):
     name = 'LDSegmenter'
