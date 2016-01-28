@@ -22,5 +22,5 @@ urlpatterns = [
     url('^', include('django.contrib.auth.urls')), # for description, see: https://docs.djangoproject.com/en/1.8/topics/auth/default/#using-the-views for description of django.contrib.auth.urls
     url('', include('social.apps.django_app.urls', namespace='social')),
     url('', include('myContent.urls', namespace='myContent')),
-    url(r'^blobSegmenter/', include('blobSegmenter.urls', namespace='blobSegmenter')),
+    url(r'^LDSegmenter/', include('LDSegmenter.urls', namespace='LDSegmenter')),
 ]
