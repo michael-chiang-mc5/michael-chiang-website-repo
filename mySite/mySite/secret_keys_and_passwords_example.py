@@ -2,6 +2,7 @@
 django_secret_key = '12345'
 
 # social authentication keys
+# see see https://realpython.com/blog/python/adding-social-authentication-to-django/
 SOCIAL_AUTH_TWITTER_KEY = '1d32'
 SOCIAL_AUTH_TWITTER_SECRET = '52s3'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'sdf3'
