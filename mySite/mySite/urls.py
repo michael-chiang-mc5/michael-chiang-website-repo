@@ -17,6 +17,9 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('^', include('django.contrib.auth.urls')), # for description, see: https://docs.djangoproject.com/en/1.8/topics/auth/default/#using-the-views for description of django.contrib.auth.urls
@@ -24,4 +27,13 @@ urlpatterns = [
     url('', include('myContent.urls', namespace='myContent')),
     url(r'^MCEditor/', include('MCEditor.urls', namespace='MCEditor')),
     url(r'^LDSegmenter/', include('LDSegmenter.urls', namespace='LDSegmenter')),
-]
+    url(r'^Blog/', include('Blog.urls', namespace='Blog')),
+
+    url(r'^MCUploader/', include('MCUploader.urls', namespace='MCUploader')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # TODO: disable this in production
+
+
+# -*- coding: utf-8 -*-
+#from django.conf.urls import patterns, include, url
+#from django.conf import settings
+#from django.conf.urls.static import static

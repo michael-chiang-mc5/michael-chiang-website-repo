@@ -8,9 +8,12 @@ def safe_text(text):
     return text
 
 # submit_url = url that the editor form submits to
-# serialized_form = json-serialized data stored in "value" field of submission form
+# serialized_form_data = json-serialized data stored in "value" field of submission form
 # header = title to display
 # initial_text = intial text in the submission form
+# editor.html itself submits a form with two POST variables:
+#   form-text, the text of the form
+#   serialized-form-data, a json serialized string
 def editor(request,submit_url,serialized_form_data,header,initial_text):
     # Make sure we strip out all escape characters
     initial_text = safe_text(initial_text)

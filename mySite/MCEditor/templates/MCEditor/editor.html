@@ -29,7 +29,7 @@
       <input type="hidden" name="serialized-form-data" value="{{ serialized_form_data }}" />
 
       <!-- WYSIWYG text editor -->
-      <textarea cols="10" id="editor" name="post-text" rows="10" style="display:none;"></textarea>
+      <textarea cols="10" id="editor" name="form-text" rows="10" style="display:none;"></textarea>
       <script>
         CKEDITOR.replace( 'editor', {
           // Set height of editor window
@@ -40,7 +40,7 @@
       </script>
 
       <!-- submit button -->
-      <button id="submit-button" type="submit" class="btn btn-primary">Submit your post. Don't be afraid, you can always edit your post later!</button>
+      <button id="submit-button" type="submit" class="btn btn-primary">Submit your post!</button>
     </form>
   </div>
   </div>

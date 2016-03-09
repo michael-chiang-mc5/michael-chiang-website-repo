@@ -1,0 +1,40 @@
+{% extends "MCBase/base.html" %}
+{% load staticfiles %}
+
+{% block javascript %}
+  <link rel="stylesheet" href="{% static 'Blog/css/index.css' %}">
+{% endblock %}
+
+{% block title %}
+  blog
+{% endblock %}
+
+{% block body_block %}
+  <div class="content">
+
+    <!-- admin interface -->
+    {% if request.user.is_superuser %}
+    <div><a href="{% url 'Blog:adminPanel' %}">adminPanel</a></div>
+    {% endif %}
+    
+    <!-- all blog posts -->
+    <div>
+      {% for blogEntry in blogEntries %}
+        <div class="blog-entry">
+          <div>
+            {{ blogEntry.time }}
+            <hr>
+          </div>
+          <div>
+            {{ blogEntry|safe }}
+          </div>
+
+
+
+        </div>
+
+      {% endfor %}
+    </div>
+
+  </div>
+{% endblock %}

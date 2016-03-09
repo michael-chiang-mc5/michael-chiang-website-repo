@@ -1,0 +1,47 @@
+{% extends "MCBase/base.html" %}
+{% load staticfiles %}
+
+{% block javascript %}
+  <link rel="stylesheet" href="{% static 'Blog/css/index.css' %}">
+{% endblock %}
+
+{% block title %}
+  blog
+{% endblock %}
+
+{% block body_block %}
+  <div class="content">
+    <h1>admin panel</h1>
+
+    <!-- admin interface -->
+    <div>
+      <a href="{% url 'Blog:addEntryEditor' %}">AddEntry</a>
+    </div>
+
+    <!-- all blog posts -->
+    <div>
+      {% for blogEntry in blogEntries %}
+        <div class="blog-entry">
+          <div>
+            {{ blogEntry|safe }}
+          </div>
+
+          <!-- admin panel -->
+          {% if request.user.is_superuser %}
+            <div>
+              <a href="{% url 'Blog:editEntryEditor' blogEntry.pk %}">edit</a>
+              {% if blogEntry.hidden %}
+                <a href="{% url 'Blog:unhideEntry' blogEntry.pk %}">unhide</a>
+              {% else %}
+                <a href="{% url 'Blog:hideEntry' blogEntry.pk %}">hide</a>
+              {% endif %}
+            </div>
+          {% endif %}
+
+        </div>
+
+      {% endfor %}
+    </div>
+
+  </div>
+{% endblock %}

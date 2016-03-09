@@ -18,10 +18,6 @@ def software(request):
     context = {}
     return render(request, 'myContent/software.html', context)
 
-def blog(request):
-    context = {}
-    return render(request, 'myContent/blog.html', context)
-
 def contact(request):
     context = {}
     return render(request, 'myContent/contact.html', context)

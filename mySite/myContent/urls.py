@@ -6,6 +6,5 @@ urlpatterns = [
     url(r'^cv/$', views.cv, name='cv'),
     url(r'^publications/$', views.publications, name='publications'),
     url(r'^software/$', views.software, name='software'),
-    url(r'^blog/$', views.blog, name='blog'),
     url(r'^contact/$', views.contact, name='contact'),
 ]

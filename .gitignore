@@ -5,3 +5,4 @@ mySite/mySite/secret_keys_and_passwords.py
 __pycache__
 migrations/
 db.sqlite3
+media/*
