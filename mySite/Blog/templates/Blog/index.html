@@ -16,14 +16,16 @@
     {% if request.user.is_superuser %}
     <div><a href="{% url 'Blog:adminPanel' %}">adminPanel</a></div>
     {% endif %}
-    
+
     <!-- all blog posts -->
     <div>
       {% for blogEntry in blogEntries %}
         <div class="blog-entry">
-          <div>
-            {{ blogEntry.time }}
-            <hr>
+          <div class="blog-date">
+            <div>
+              {{ blogEntry.time|date:'F j, Y' }}
+            </div>
+            <hr />
           </div>
           <div>
             {{ blogEntry|safe }}
