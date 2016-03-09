@@ -3,4 +3,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.list, name='list'),
+    url(r'^delete/(?P<document_pk>[0-9]+)/$', views.delete, name='delete'),
+    url(r'^upload/$', views.upload, name='upload'),
 ]
