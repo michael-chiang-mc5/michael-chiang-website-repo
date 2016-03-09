@@ -25,3 +25,8 @@
   margin-left: 0.25in;
   font-size: 12px;
 }
+
+.content img {
+  width:150px;
+  height:auto;
+}
