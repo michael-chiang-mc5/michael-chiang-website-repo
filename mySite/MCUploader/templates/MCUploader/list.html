@@ -1,19 +1,37 @@
-<html>
-  <body>
-    {% if documents %}
-        <ul>
-        {% for document in documents %}
-            <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
-            <a href="{% url 'MCUploader:delete' document.pk %}">delete</a>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No documents.</p>
-    {% endif %}
+{% extends "MCBase/base.html" %}
+{% load staticfiles %}
 
-    {% include "MCUploader/uploadForm.html" %}
+{% block javascript %}
+  <link rel="stylesheet" href="{% static 'MCUploader/css/list.css' %}">
+{% endblock %}
+
+{% block title %}
+  Uploader
+{% endblock %}
 
 
 
-  </body>
-</html>
+{% block body_block %}
+
+  <!-- form to upload file -->
+  {% include "MCUploader/uploadForm.html" %}
+  <hr >
+
+  <!-- display previously loaded files -->
+  {% if documents %}
+      <ul>
+      {% for document in documents %}
+          <li>
+            {{ document.time }}
+            &nbsp; &nbsp; &nbsp;
+            <a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a>
+            &nbsp; &nbsp; &nbsp;
+            <a class="delete_link" href="{% url 'MCUploader:delete' document.pk %}">delete</a>
+          </li>
+      {% endfor %}
+      </ul>
+  {% else %}
+      <p>No documents.</p>
+  {% endif %}
+
+{% endblock %}

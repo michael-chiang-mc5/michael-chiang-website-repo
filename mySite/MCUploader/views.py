@@ -26,7 +26,7 @@ def list(request):
     #        return HttpResponse(files)
 
     # Render list page with the documents and the form
-    documents = Document.objects.all()
+    documents = Document.objects.all().order_by('-time')
     context = {'documents':documents}
     return render(request, 'MCUploader/list.html',context)
 

@@ -20,6 +20,7 @@
     <div id="post-editor-header">
       {{ header|safe }}
     </div>
+    <a target="_blank" href="{% url 'MCUploader:list' %}">Click to upload file</a>
 
     <div>
       <form role="form" action="{{ submit_url }}" method=POST>
