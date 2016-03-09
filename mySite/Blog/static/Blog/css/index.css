@@ -36,3 +36,10 @@ hr {
   margin-top: 2px;
   margin-bottom: 2px;
 }
+
+.blog-text img {
+   height: auto !important;
+   width: auto !important;
+   max-height: 150px !important;
+   max-width: 150px !important;
+}

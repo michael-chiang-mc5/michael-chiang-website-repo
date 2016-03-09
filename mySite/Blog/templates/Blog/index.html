@@ -2,6 +2,7 @@
 {% load staticfiles %}
 
 {% block javascript %}
+  <script src="{% static 'Blog/js/index.js' %}"></script>
   <link rel="stylesheet" href="{% static 'Blog/css/index.css' %}">
 {% endblock %}
 
@@ -27,7 +28,7 @@
             </div>
             <hr />
           </div>
-          <div>
+          <div class="blog-text">
             {{ blogEntry|safe }}
           </div>
 

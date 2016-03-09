@@ -34,7 +34,7 @@
       <script>
         CKEDITOR.replace( 'editor', {
           // Set height of editor window
-          height: $("#post-editor-container").height() - $("#post-editor-header").height() - CKEDITOR.config.height - $("#submit-button").height(),
+          height: $("#post-editor-container").height() - $("#post-editor-header").height() - CKEDITOR.config.height - $("#submit-button").height() ,
         });
         // set initial text
         CKEDITOR.instances.editor.setData("{{ initial_text|safe }}")
