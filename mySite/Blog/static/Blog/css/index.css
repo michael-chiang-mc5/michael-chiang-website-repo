@@ -1,0 +1,26 @@
+.content {
+  line-height: 145%;
+}
+
+.content .blog-entry {
+  background-color: #F5F5F5;
+  margin-left: 0.25in;
+  padding-left: 0.25in;
+  padding-right: 0.25in;
+  padding-top: 0.05in;
+  padding-bottom: 0.05in;
+  border-radius: 0.25in;
+  margin-bottom: 20px;
+}
+
+.content .blog-entry  h1 {
+  color: #2970A6;
+  font-weight: bold;
+  font-family: Verdana,"BitStream vera Sans",Helvetica,Sans-serif;
+  font-size: 12px;
+}
+
+.content .blog-entry p {
+  margin-left: 0.25in;
+  font-size: 12px;
+}
