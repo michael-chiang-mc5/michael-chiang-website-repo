@@ -23,7 +23,7 @@ CKEDITOR.editorConfig = function( config ) {
  		{ name: 'about', groups: [ 'about' ] },
  		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] }
  	];
- 	config.removeButtons = 'Source,Save,NewPage,Preview,Print,Templates,Cut,Copy,Paste,PasteText,PasteFromWord,Redo,Undo,Find,Replace,SelectAll,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,RemoveFormat,Anchor,Unlink,Flash,PageBreak,Iframe,Font,FontSize,TextColor,BGColor,Maximize,ShowBlocks,About,BulletedList,Outdent,Indent,CreateDiv,JustifyBlock,BidiLtr,BidiRtl,Language,Scayt,Smiley'
+ 	config.removeButtons = 'Save,NewPage,Preview,Print,Templates,Cut,Copy,Paste,PasteText,PasteFromWord,Redo,Undo,Find,Replace,SelectAll,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,RemoveFormat,Anchor,Unlink,Flash,PageBreak,Iframe,Font,FontSize,TextColor,BGColor,Maximize,ShowBlocks,About,BulletedList,Outdent,Indent,CreateDiv,JustifyBlock,BidiLtr,BidiRtl,Language,Scayt,Smiley' // Source
   config.removeDialogTabs = 'image:Link;image:advanced;table:advanced;link:target;link:advanced';
   config.hideDialogFields="image:info:txtAlt;image:info:txtHeight;image:info:txtWidth;image:info:ratioLock;" +
                           "image:info:txtBorder;image:info:txtHSpace;image:info:txtVSpace;image:info:cmbAlign;image:info:htmlPreview;" +

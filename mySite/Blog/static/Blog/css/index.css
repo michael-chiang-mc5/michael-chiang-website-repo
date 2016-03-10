@@ -13,12 +13,20 @@
 }
 
 .content .blog-entry  h1 {
+  color: #2970A6;
+  font-weight: bold;
+  font-family: Verdana,"BitStream vera Sans",Helvetica,Sans-serif;
+  font-size: 25px;
+  margin-top: 10px;
+}
+.content .blog-entry  h2 {
   color: #265e15;
   font-weight: bold;
   font-family: Verdana,"BitStream vera Sans",Helvetica,Sans-serif;
   font-size: 16px;
   margin-top: 10px;
 }
+
 
 .content .blog-entry p {
   font-size: 12px;
