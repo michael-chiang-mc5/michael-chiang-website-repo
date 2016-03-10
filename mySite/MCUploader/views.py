@@ -12,6 +12,8 @@ import os
 from django.conf import settings
 
 def upload(request):
+    if not request.user.is_superuser:
+        return HttpResponse("You are not a superuser")
     f = request.FILES['docfile']
     newdoc = Document(docfile = f)
     newdoc.save()
@@ -25,13 +27,16 @@ def list(request):
     #    if files[-3:].lower() in ["gif","png","jpg","bmp"] :
     #        return HttpResponse(files)
 
-    # Render list page with the documents and the form
+    if not request.user.is_superuser:
+        return HttpResponse("You are not a superuser")
     documents = Document.objects.all().order_by('-time')
     context = {'documents':documents}
     return render(request, 'MCUploader/list.html',context)
 
 
 def delete(request,document_pk):
+    if not request.user.is_superuser:
+        return HttpResponse("You are not a superuser")
     doc = Document.objects.get(pk=document_pk)
     file_path=settings.MEDIA_ROOT
     os.remove(file_path+'/'+doc.docfile.name)

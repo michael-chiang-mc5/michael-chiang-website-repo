@@ -10,11 +10,15 @@ def index(request):
     return render(request, 'Blog/index.html', context)
 
 def adminPanel(request):
+    if not request.user.is_superuser:
+        return HttpResponse("You are not a superuser")
     blogEntries = BlogEntry.objects.all()
     context = {'blogEntries':blogEntries,}
     return render(request, 'Blog/adminPanel.html', context)
 
 def addEntryEditor(request):
+    if not request.user.is_superuser:
+        return HttpResponse("You are not a superuser")
     submit_url = reverse('Blog:addEntry')
     form_data = {}
     header = "Add a blog post"
@@ -22,13 +26,16 @@ def addEntryEditor(request):
     html = editor(request,submit_url,form_data,header,initial_text) # See MCEditor.views
     return html
 def addEntry(request):
-    # TODO: check for superuser
+    if not request.user.is_superuser:
+        return HttpResponse("You are not a superuser")
     form_text = request.POST.get("form-text")
     blogEntry = BlogEntry(text=form_text)
     blogEntry.save()
     return HttpResponseRedirect( reverse('Blog:adminPanel') )
 
 def editEntryEditor(request,blogEntry_pk):
+    if not request.user.is_superuser:
+        return HttpResponse("You are not a superuser")
     submit_url = reverse('Blog:editEntry',args=[blogEntry_pk])
     form_data = {}
     header = "Edit a blog post"
@@ -36,6 +43,8 @@ def editEntryEditor(request,blogEntry_pk):
     html = editor(request,submit_url,form_data,header,initial_text) # See MCEditor.views
     return html
 def editEntry(request,blogEntry_pk):
+    if not request.user.is_superuser:
+        return HttpResponse("You are not a superuser")
     form_text = request.POST.get("form-text")
     blogEntry = BlogEntry.objects.get(pk=blogEntry_pk)
     blogEntry.text = form_text
@@ -43,11 +52,15 @@ def editEntry(request,blogEntry_pk):
     return HttpResponseRedirect( reverse('Blog:adminPanel') )
 
 def hideEntry(request,blogEntry_pk):
+    if not request.user.is_superuser:
+        return HttpResponse("You are not a superuser")
     blogEntry = BlogEntry.objects.get(pk=blogEntry_pk)
     blogEntry.hidden=True
     blogEntry.save()
     return HttpResponseRedirect( reverse('Blog:adminPanel') )
 def unhideEntry(request,blogEntry_pk):
+    if not request.user.is_superuser:
+        return HttpResponse("You are not a superuser")
     blogEntry = BlogEntry.objects.get(pk=blogEntry_pk)
     blogEntry.hidden=False
     blogEntry.save()

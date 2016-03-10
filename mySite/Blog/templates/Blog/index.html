@@ -21,7 +21,7 @@
     <!-- all blog posts -->
     <div>
       {% for blogEntry in blogEntries %}
-        <div class="blog-entry">
+        <div class="blog-entry" id="e{{ blogEntry.pk }}">
           <div class="blog-date">
             <div>
               {{ blogEntry.time|date:'F j, Y' }}
