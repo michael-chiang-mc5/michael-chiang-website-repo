@@ -2,6 +2,8 @@
 {% load staticfiles %}
 
 {% block javascript %}
+  <script type="text/javascript" src="{% static 'Blog/js/index.js' %}"></script>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   <link rel="stylesheet" href="{% static 'Blog/css/index.css' %}">
 {% endblock %}
 
@@ -20,9 +22,16 @@
 
     <!-- all blog posts -->
     <div>
+      {% if blogEntries %}
       {% for blogEntry in blogEntries %}
-        <div class="blog-entry">
-          <div>
+        <div class="blog-entry" id="e{{ blogEntry.pk }}">
+          <div class="blog-date">
+            <div>
+              {{ blogEntry.time|date:'F j, Y' }}
+            </div>
+            <hr />
+          </div>
+          <div class="blog-text">
             {{ blogEntry|safe }}
           </div>
 
@@ -41,6 +50,9 @@
         </div>
 
       {% endfor %}
+      {% else %}
+        No blog entries
+      {% endif %}
     </div>
 
   </div>

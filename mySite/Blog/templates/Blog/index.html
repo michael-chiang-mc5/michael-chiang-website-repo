@@ -2,7 +2,8 @@
 {% load staticfiles %}
 
 {% block javascript %}
-  <script src="{% static 'Blog/js/index.js' %}"></script>
+  <script type="text/javascript" src="{% static 'Blog/js/index.js' %}"></script>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   <link rel="stylesheet" href="{% static 'Blog/css/index.css' %}">
 {% endblock %}
 
