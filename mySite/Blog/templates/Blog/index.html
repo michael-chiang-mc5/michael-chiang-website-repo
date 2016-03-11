@@ -20,6 +20,7 @@
 
     <!-- all blog posts -->
     <div>
+      {% if blogEntries %}
       {% for blogEntry in blogEntries %}
         <div class="blog-entry" id="e{{ blogEntry.pk }}">
           <div class="blog-date">
@@ -37,6 +38,9 @@
         </div>
 
       {% endfor %}
+      {% else %}
+        No blog entries
+      {% endif %}
     </div>
 
   </div>
