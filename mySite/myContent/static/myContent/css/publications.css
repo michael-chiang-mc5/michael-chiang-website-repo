@@ -5,6 +5,7 @@
 .content .page-header {
   display: block;
   margin-top: 20px;
+  margin-bottom: 5px;
   border-bottom: 1px solid #CCC;
   padding: 0 5px 3px;
   font-size: 16px;
