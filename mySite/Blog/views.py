@@ -6,6 +6,7 @@ from .models import *
 
 def index(request):
     blogEntries = BlogEntry.objects.filter(hidden=False)
+    blogEntries = blogEntries.order_by('-time')
     context = {'blogEntries':blogEntries,}
     return render(request, 'Blog/index.html', context)
 
@@ -13,6 +14,7 @@ def adminPanel(request):
     if not request.user.is_superuser:
         return HttpResponse("You are not a superuser")
     blogEntries = BlogEntry.objects.all()
+    blogEntries = blogEntries.order_by('-time')
     context = {'blogEntries':blogEntries,}
     return render(request, 'Blog/adminPanel.html', context)
 
