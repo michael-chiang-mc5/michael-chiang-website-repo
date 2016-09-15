@@ -1,5 +1,6 @@
 // create hyperlinks to all images in posts
 
+
 $(document).ready(function() {
 
   $('.blog-text img').each(function(index) {

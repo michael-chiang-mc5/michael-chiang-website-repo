@@ -1,5 +1,5 @@
 .content {
-  line-height: 145%;
+  line-height: 185%;
 }
 
 .content .blog-entry {
@@ -13,21 +13,22 @@
 }
 
 .content .blog-entry  h1 {
-  color: #265e15;
+  color: rgb(210, 117, 6);
+
   font-family: Verdana,"BitStream vera Sans",Helvetica,Sans-serif;
-  font-size: 20px;
+  font-size: 30px;
   margin-top: 10px;
 }
 .content .blog-entry  h2 {
-  color: #2970A6;
+  color: #265e15;
   font-family: Verdana,"BitStream vera Sans",Helvetica,Sans-serif;
-  font-size: 15px;
+  font-size: 24px;
   margin-top: 10px;
 }
 
 
 .content .blog-entry p,li {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .blog-date {
@@ -43,9 +44,25 @@ hr {
   margin-bottom: 2px;
 }
 
+figure {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  margin-bottom:10px;
+}
+figcaption {
+  text-align: left;
+  font-size: 12px;
+  color: green;
+  line-height: 105%;
+}
+
+
+/*
 .blog-text img {
    height: auto !important;
    width: auto !important;
    max-height: 150px !important;
    max-width: 150px !important;
 }
+*/

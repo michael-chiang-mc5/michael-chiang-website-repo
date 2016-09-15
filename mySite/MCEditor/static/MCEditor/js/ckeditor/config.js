@@ -24,16 +24,15 @@ CKEDITOR.editorConfig = function( config ) {
  		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] }
  	];
  	config.removeButtons = 'Save,NewPage,Preview,Print,Templates,Cut,Copy,Paste,PasteText,PasteFromWord,Redo,Undo,Find,Replace,SelectAll,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,RemoveFormat,Anchor,Unlink,Flash,PageBreak,Iframe,Font,FontSize,TextColor,BGColor,Maximize,ShowBlocks,About,BulletedList,Outdent,Indent,CreateDiv,JustifyBlock,BidiLtr,BidiRtl,Language,Scayt,Smiley' // Source
-  config.removeDialogTabs = 'image:Link;image:advanced;table:advanced;link:target;link:advanced';
-  config.hideDialogFields="image:info:txtAlt;image:info:txtHeight;image:info:txtWidth;image:info:ratioLock;" +
-                          "image:info:txtBorder;image:info:txtHSpace;image:info:txtVSpace;image:info:cmbAlign;image:info:htmlPreview;" +
-                          "table:info:selHeaders;table:info:txtCellSpace;table:info:txtBorder;table:info:txtCellPad;table:info:cmbAlign;table:info:txtSummary;table:info:txtHeight;" +
-                          "link:info:linkType;link:info:protocol"
+  //config.removeDialogTabs = 'image:Link;image:advanced;table:advanced;link:target;link:advanced';
+  //config.hideDialogFields="image:info:txtAlt;image:info:txtHeight;image:info:txtWidth;image:info:ratioLock;" +
+  //                        "image:info:txtBorder;image:info:txtHSpace;image:info:txtVSpace;image:info:cmbAlign;image:info:htmlPreview;" +
+  //                        "table:info:selHeaders;table:info:txtCellSpace;table:info:txtBorder;table:info:txtCellPad;table:info:cmbAlign;table:info:txtSummary;table:info:txtHeight;" +
+  //                        "link:info:linkType;link:info:protocol"
   config.specialChars = [ 'α','β','ξ','δ','ε','φ','γ','η','ι','σ','κ','λ','μ','ν','ο','π','θ','ρ','σ','τ','υ','ϝ','ω','χ','ψ','ζ'  ];
 
-  config.extraPlugins = 'mathjax,confighelper'; // put 'mathjax,devtools' if you want to know editor IDs
+  config.extraPlugins = 'mathjax,confighelper,image2,devtools'; // put 'devtools' if you want to know editor IDs
   config.mathJaxLib = 'http://cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML';
-
 };
 
 
